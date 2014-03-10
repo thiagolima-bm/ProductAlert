@@ -1,0 +1,12 @@
+<config>
+<!-- ... -->
+  <modules>
+
+    <Bommercatto_ProductAlert>
+      <active>true</active>
+      <codePool>local</codePool>
+    </Bommercatto_ProductAlert>
+<!-- ... -->
+  </modules>
+<!-- ... -->
+</config>

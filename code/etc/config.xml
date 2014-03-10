@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Bommercatto_ProductAlert>
+            <version>0.0.1</version>
+        </Bommercatto_ProductAlert>
+    </modules>
+    <global>
+        <models>
+            <productalert>
+                <rewrite>
+                    <observer>Bommercatto_ProductAlert_Model_Observer</observer>
+                </rewrite>
+            </productalert>
+        </models>
+    </global>
+</config>

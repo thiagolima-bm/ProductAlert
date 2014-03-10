@@ -1,0 +1,6 @@
+
+
+# ProductAlert Module
+
+code                   				app/code/local/Bommercatto/ProductAlert/
+Bommercatto_ProductAlert.xml        app/etc/modules/Bommercatto_ProductAlert.xml
