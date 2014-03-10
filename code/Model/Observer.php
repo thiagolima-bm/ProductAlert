@@ -127,52 +127,5 @@ class Bommercatto_ProductAlert_Model_Observer extends Mage_ProductAlert_Model_Ob
         return $this;
     }
 
-    /**
-     * Send email to administrator if error
-     *
-     * @return Mage_ProductAlert_Model_Observer
-     */
-    protected function _sendErrorEmail()
-    {
-        if (count($this->_errors)) {
-            if (!Mage::getStoreConfig(self::XML_PATH_ERROR_TEMPLATE)) {
-                return $this;
-            }
-
-            $translate = Mage::getSingleton('core/translate');
-            /* @var $translate Mage_Core_Model_Translate */
-            $translate->setTranslateInline(false);
-
-            $emailTemplate = Mage::getModel('core/email_template');
-            /* @var $emailTemplate Mage_Core_Model_Email_Template */
-            $emailTemplate->setDesignConfig(array('area'  => 'backend'))
-                ->sendTransactional(
-                    Mage::getStoreConfig(self::XML_PATH_ERROR_TEMPLATE),
-                    Mage::getStoreConfig(self::XML_PATH_ERROR_IDENTITY),
-                    Mage::getStoreConfig(self::XML_PATH_ERROR_RECIPIENT),
-                    null,
-                    array('warnings' => join("\n", $this->_errors))
-                );
-
-            $translate->setTranslateInline(true);
-            $this->_errors[] = array();
-        }
-        return $this;
-    }
-
-    /**
-     * Run process send product alerts
-     *
-     * @return Mage_ProductAlert_Model_Observer
-     */
-    public function process()
-    {
-        $email = Mage::getModel('productalert/email');
-        /* @var $email Mage_ProductAlert_Model_Email */
-        $this->_processPrice($email);
-        $this->_processStock($email);
-        $this->_sendErrorEmail();
-
-        return $this;
-    }
+    
 }
